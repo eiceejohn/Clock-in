@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="./css.css">
+</head>
+<body>
+	<div class="container">
+		<form method="post" action="" name="contact-form">
+			<div class="header">
+				<h4>Time In & Out</h4>
+				<img src="./images/logo.jpg" alt="images">
+			</div>
+			<input type="text" name="Name" placeholder="Name">
+    		<input type="text" name="Time" id="clock" readonly>
+			<input list="department" name="Department" id="departmentInput" placeholder="Select a department.">
+				<datalist id="department" >
+					<option value="Log">
+					<option value="WPD">
+					<option value="TLL">
+				</datalist>
+			<input type="submit" value="Submit" id="submit">
+		</form>
+	</div>
+	<script src="./js.js"></script>
+</body>
+</html>
