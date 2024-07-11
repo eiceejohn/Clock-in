@@ -25,21 +25,24 @@ var today = new Date();
   function fetchData() {
     let id = document.getElementById('idInput').value;
 
-   
+
     let data = {
-        id: '400',
-        name: 'Eicee John Santiago',
-        department: 'Log',
+        '400': { 
+            name: 'Eicee John Santiago',
+            department: 'Log',
+        },
+        '107': {
+            name: 'Aurelio Abao',
+            department: 'Log',
+        },
     };
 
-    let data = {
-      id: '107',
-      name: 'Aurelio Abao',
-      department: 'Log',
-  };
-
-    document.getElementById('nameInput').value = data.name;
-    document.getElementById('departmentInput').value = data.department;
+    if (data[id]) {
+        document.getElementById('nameInput').value = data[id].name;
+        document.getElementById('departmentInput').value = data[id].department;
+    } else {
+        alert('Data not found for ID: ' + id);
+    }
 }
 
 
