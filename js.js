@@ -11,6 +11,37 @@ form.addEventListener('submit', e => {
   .catch(error => console.error('Error!', error.message))
 })
 
+var today = new Date();
+
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+  var yyyy = today.getFullYear();
+
+  var formattedDate = yyyy + '-' + mm + '-' + dd;
+
+  document.getElementById('presentDate').value = formattedDate;
+
+
+  function fetchData() {
+    let id = document.getElementById('idInput').value;
+
+   
+    let data = {
+        id: '400',
+        name: 'Eicee John Santiago',
+        department: 'Log',
+    };
+
+    let data = {
+      id: '107',
+      name: 'Aurelio Abao',
+      department: 'Log',
+  };
+
+    document.getElementById('nameInput').value = data.name;
+    document.getElementById('departmentInput').value = data.department;
+}
+
 
 function updateTime() {
   var now = new Date();

@@ -4,22 +4,36 @@
 	<link rel="stylesheet" href="./css.css">
 </head>
 <body>
-	<div class="container">
-		<form method="post" action="" name="contact-form">
-			<div class="header">
-				<h4>Time In & Out</h4>
-				<img src="./images/logo.jpg" alt="images">
-			</div>
-			<input type="text" name="Name" placeholder="Name">
-    		<input type="text" name="Time" id="clock" readonly>
-			<input list="department" name="Department" id="departmentInput" placeholder="Select a department.">
-				<datalist id="department" >
-					<option value="Log">
-					<option value="WPD">
-					<option value="TLL">
-				</datalist>
-			<input type="submit" value="Submit" id="submit">
-		</form>
+	<div class="timein">
+		<div class="cdasia-background">
+			<img src="./images/cdasiapic.jpg" alt="background">
+		</div>
+		<div class="container">
+			<form method="post" action="" name="contact-form">
+				<div class="header">
+					<h4>Time In & Out</h4>
+					<img src="./images/logo.jpg" alt="images">
+				</div>
+				<input type="text" id="idInput" name="idInput" placeholder="Enter ID...">
+    			<button class="fetch" type="button" onclick="fetchData()">Fetch Data</button>
+				<input type="text" id="nameInput" name="Name" placeholder="Name">
+				<input type="text" name="Time" id="clock" readonly>
+				<input list="department" name="Department" id="departmentInput" placeholder="Select a department.">
+					<datalist id="department" >
+						<option value="Log">
+						<option value="WPD">
+						<option value="TLL">
+					</datalist>
+				<input list="attendance" name="attendance" id="AttendanceInput" placeholder="Attendance">
+					<datalist id="attendance" >
+						<option value="Clock In">
+						<option value="Clock Out">
+						<option value="On Leave">
+					</datalist>
+				<input type="date" id="presentDate" name="presentDate">
+				<input type="submit" value="Submit" id="submit">
+			</form>
+		</div>
 	</div>
 	<script src="./js.js"></script>
 </body>
