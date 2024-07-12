@@ -3,13 +3,49 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbzn6Zeg7CnVBWDxjth0j9
 
 const form = document.forms['contact-form']
 
+// form.addEventListener('submit', e => {
+//   e.preventDefault()
+//   fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+//   .then(response => alert("Thank you! your form is submitted successfully." ))
+//   .then(() => { window.location.reload(); })
+//   .catch(error => console.error('Error!', error.message))
+// })
+
 form.addEventListener('submit', e => {
-  e.preventDefault()
-  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-  .then(response => alert("Thank you! your form is submitted successfully." ))
-  .then(() => { window.location.reload(); })
-  .catch(error => console.error('Error!', error.message))
-})
+    e.preventDefault();
+
+    // Perform form validation
+    if (!form.checkValidity()) {
+        // If the form is not valid, show error messages or handle as needed
+        // Here's a simple example alert:
+        alert("Please fill out all required fields.");
+        return;
+    }
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text(); // Assuming the server returns some text message
+    })
+    .then(data => {
+        // Display success message on the webpage
+        const successMessage = document.createElement('p');
+        successMessage.textContent = "Submitted successfully.";
+        form.appendChild(successMessage); // Append message to the form or any other container
+        
+        // Optional: Reset form fields
+        form.reset();
+
+        // Optional: Hide message after some time
+        setTimeout(() => {
+            successMessage.style.display = 'none';
+        }, 3000); // Hide message after 3 seconds (3000 milliseconds)
+    })
+    .catch(error => console.error('Error!', error.message));
+
+});
 
 var today = new Date();
 

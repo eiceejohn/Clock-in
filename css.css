@@ -118,3 +118,13 @@ button.fetch:hover {
 	background-color: #333333;
 	transform: scale(1.05);
 }
+form p {
+    background: none;
+    color: #fff;
+    border: 2px solid #feff0e;
+    position: absolute;
+    font-size: 11px;
+    bottom: -1%;
+    width: 72%;
+    padding: 6px;
+}
