@@ -128,6 +128,6 @@ form p {
     width: 72%;
     padding: 6px;
 }
-.clock .date {
-display: none;
+#clock, #presentDate {
+    display: none;
 }
