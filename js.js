@@ -71,6 +71,10 @@ var today = new Date();
             name: 'Aurelio Abao',
             department: 'Log',
         },
+        '358': {
+            name: 'Christian Andrew Cruz',
+            department: 'WPD',
+        },
     };
 
     if (data[id]) {
