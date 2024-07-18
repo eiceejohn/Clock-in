@@ -1,5 +1,5 @@
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyABPv6dcHVdQU7AJpQ-xSAPOZCZD5qGTyDdVhG5V5XgimwCNDF_ieDRWfjYgl1J4ZTYg/exec'
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxDd5iJp5Egi7pE4Ajunf3-tA6klwGgNJyXBXLB5TCVAJbMmG2q1Kt_PTpmMzyQXs4/exec'
 
 const form = document.forms['contact-form']
 
