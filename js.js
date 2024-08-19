@@ -90,6 +90,45 @@ var today = new Date();
 }
 
 
+function ClockIn() {
+        $('#message').html('');
+        var employee = $('#employee').val();
+        var employeeName = $('#employeeName').val();
+        var department = $('#department').val();
+        var leaveDays = $('#leaveDays').val();
+        var leaveFrom = $('#leaveFrom').val();
+        var leaveTo = $('#leaveTo').val();
+        var leaveType = $('#leaveType').val();
+        var uid = $('#uid').val();
+        //var pass = $('#pass').val();
+
+        if (employee !== '' && department !== '') {
+          google.script.run
+            .withSuccessHandler(function (ar) {
+              console.log(ar);
+              ar.forEach(function (item, index) {
+                if (item[0] === 'SUCCESS') {
+                  var message = ' Employee ' + item[2] + ' Clocked In at ' + item[1];
+                  $('#message').html(message);
+                  $('#message').removeClass().addClass('alert alert-primary');
+                  var allInputs = document.querySelectorAll('input');
+         allInputs.forEach(singleInput => singleInput.value = '');
+                } else {
+                  var message = item[2] + ' ' + item[0];
+                  $('#message').html(message);
+                  $('#message').removeClass().addClass('alert alert-warning');
+                }
+              });
+            })
+            .clockIn(employee,employeeName, department,leaveDays, leaveFrom, leaveTo, leaveType, uid);
+        } else {
+          var message = 'Please select an employee and department.';
+          $('#message').html(message);
+          $('#message').removeClass().addClass('alert alert-warning');
+        }
+      }
+
+
 function updateTime() {
   var now = new Date();
   var hours = now.getHours();
